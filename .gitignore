@@ -1,0 +1,15 @@
+# Ignore heavy genomic datasets
+*.csv
+*.csv.gz
+*.tsv
+*.tsv.gz
+*.txt
+*.txt.gz
+
+# Python environment artifacts
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+
+venv/
