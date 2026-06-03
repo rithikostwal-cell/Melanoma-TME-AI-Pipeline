@@ -52,11 +52,13 @@ Unsupervised Leiden clustering at a 0.5 resolution resolved the low-dimensional 
 | **B-Cells** | *CD19*, *MS4A1*, *CD79A* |
 | **Macrophages** | *CD14*, *FCGR3A*, *LYZ*, *CSF1R* |
 | **Cancer-Associated Fibroblasts (CAFs)** | *COL1A1*, *FAP*, *ACTA2* |
+![Annotated TME Atlas](results/umap_annotated.png)
 
 ### 2. AI-Driven Feature Selection & Model Interpretability
 An optimized XGBoost classifier trained on the annotated coordinates isolated the highly variable genes with the highest global predictive weight. The B-cell lineage co-signaling factor CD79A transitioned to the top global biomarker candidate, followed closely by the melanocytic oncogene MLANA.
 
 SHAP explainability mapping via TreeExplainer revealed that high expression of MLANA and S100B strongly drove positive tumor classification. Crucially, the antigen-presentation factor B2M demonstrated a clean bidirectional SHAP distribution, where its down-regulation strongly pushed model outcomes toward a malignant state, computationally capturing the classic footprint of MHC-I down-regulation used by melanoma cells to evade T-cell tracking.
+![SHAP Summary](results/shap_summary.png)
 
 ### 3. Intercellular Communication & Network Biology
 * **Pathway Enrichment:** GSEA via `gseapy` revealed notable transcriptomic dysregulation within the tumor parenting compartment, emphasizing Coagulation Cascade Activation (Adjusted p = 7.32e-12) and Epithelial-Mesenchymal Transition (EMT) (Adjusted p = 9.40e-08).
@@ -67,3 +69,4 @@ SHAP explainability mapping via TreeExplainer revealed that high expression of M
 Cross-cohort screenings within the separate GSE72056 single-cell dataset successfully confirmed biomarker stability. To demonstrate clinical translation, patients from the TCGA-SKCM cohort (n=314) were stratified based on the true empirical median split of bulk CD79A expression values.
 
 The computed Kaplan-Meier survival analysis revealed a highly significant survival advantage for patients with high CD79A transcript levels (Log-Rank p = 4.4202e-03). The high-expression cohort demonstrated a median overall survival of 44.8 months, extending survival by 18.1 months compared to the low-expression cohort (26.7 months). This directly underscores the protective role of tumor-infiltrating B-cells and tertiary lymphoid structures (TLS) in driving anti-tumor immunity.
+![Kaplan-Meier Survival Curve](results/survival_kaplan_meier_empirical.png)
