@@ -1,0 +1,16 @@
+   scanpy>=1.10
+   anndata
+   leidenalg
+   python-igraph
+   xgboost
+   scikit-learn
+   shap
+   gseapy
+   lifelines
+   liana-py
+   torch
+   seaborn
+   networkx
+   pandas
+   numpy
+   matplotlib
